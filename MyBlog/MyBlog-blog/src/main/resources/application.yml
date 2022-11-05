@@ -1,0 +1,40 @@
+server:
+  port: 7777
+  servlet:
+    context-path: /api
+spring:
+  datasource:
+    url: jdbc:mysql://8.131.166.82:3306/ry_blog?characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: ry_blog
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  #redis配置信息
+  redis:
+    database: 0 #redis数据库索引，默认为0
+#    host: 127.0.0.1 #redis服务器地址
+    host: 8.131.166.82
+    port: 6379 #redis服务器连接端口
+    password: 123456 #redis服务器连接密码，默认为null
+    timeout: 5000 #redis连接超时时间
+  servlet:
+    #配置文件传输
+    multipart:
+      #单个数据的大小
+      max-file-size: 2MB
+      #总数据的大小
+      max-request-size: 5MB
+mybatis-plus:
+  configuration:
+    #日志 可以打印mybatis相关的日志信息
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: delFlag #逻辑删除字段
+      logic-delete-value: 1 #1代表已删除
+      logic-not-delete-value: 0 #0代表未删除
+      id-type: auto #设置主键自增
+oss:
+  accessKey: XKWwWrvjp7mAdWtCiBNFhVI9DE6xwp7zYb7DX1__
+  secretKey: bVscQ_AJnY3tdmhceQEwLHqhvZzdVIf9m1lxrCCX
+  bucket: ry-blog
+  link: http://rjmbbrdpo.hb-bkt.clouddn.com/
